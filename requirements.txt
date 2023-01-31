@@ -1,0 +1,21 @@
+#tensorflow-cpu 
+
+streamlit
+numpy==1.16
+six==1.15.0
+####typing-extensions #==3.7.4
+####tf-explain==0.2.1
+
+## Double hash = confirmed
+pyyaml##
+## maybe also yaml
+python-box##
+imutils##
+tensorflow-gpu==2.5## and the wheel for 2.4
+#opencv-python
+seaborn##
+pylint##
+make##
+selenium##
+tqdm##
+#importlib
