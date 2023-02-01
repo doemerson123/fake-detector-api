@@ -1,2 +1,8 @@
 streamlit
-
+numpy==1.19
+six==1.15
+tensorflow-cpu==2.5
+matplotlib
+pathlib
+Pillow
+tf_explain
