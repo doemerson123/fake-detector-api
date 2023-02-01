@@ -1,6 +1,7 @@
 import os
 import sys
 import tensorflow as tf
+from tensorflow.keras.metrics import Metric
 from tf_explain.core.grad_cam import GradCAM
 tf.config.run_functions_eagerly(True)
 import numpy as np     
