@@ -21,7 +21,7 @@ src_path = Path(__file__).parent.parent.parent.resolve()
 #print("this is the path src", str(src_path))
 #sys.path.append('/app/utils')
 
-class StatefullMultiClassFBeta:
+class StatefullMultiClassFBeta(Metric):
 
     """
     Custom Keras Fbeta metric used to calculate F beta during modeling
@@ -36,8 +36,8 @@ class StatefullMultiClassFBeta:
                 **kwargs):
 
         # initializing an object of the super class
-        #super(StatefullMultiClassFBeta, self).__init__(name=name, **kwargs)
-        super().__init__(**kwargs)
+        super(StatefullMultiClassFBeta, self).__init__(name=name, **kwargs)
+        
 
         # initializing state variables
         # initializing true positives
