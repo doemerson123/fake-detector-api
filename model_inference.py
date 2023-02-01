@@ -124,8 +124,7 @@ dependencies = {
 #best_model = params.model_inference.best_model_name
 #best_model_location = params.model_inference.best_model_location
 
-model = tf.keras.models.load_model(os.path.join(src_path, "best_model.hdf5"), 
-                                custom_objects=dependencies)
+model = tf.keras.models.load_model("best_model.hdf5", custom_objects=dependencies)
 
 def preprocess_image(image):
     '''
