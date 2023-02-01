@@ -189,6 +189,26 @@ def explainable_layers(explainable_image):
     plt.subplots_adjust(wspace=0, hspace=.1)
     return(fig)
 
+
+uploaded_file = st.file_uploader("Upload a picture of a person", type="jpg")
+if uploaded_file:
+    image = Image.open(uploaded_file)
+
+    st.image(image, caption='Uploaded Image.', use_column_width=True)
+    #st.write(f"{prediction}")
+    st.write("Classifying...")
+    prediction = fake_detector(image)
+    prediction_pct = prediction * 100
+
+    label = np.argmax(prediction)
+    formatted_pct = round(float(prediction_pct[0][label]),3)
+    if label == 0:
+        st.write(f"AI generated picture: model certainty of {formatted_pct}%")
+    elif label ==1:
+        st.write(f"Authentic picture: model certainty of {formatted_pct}%")
+
+    st.pyplot(explainable_layers(image))
+
 #only best model location until a place is found for images
 #prediction = fake_detector(best_model_location)
 
