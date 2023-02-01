@@ -1,9 +1,6 @@
-os
-sys
 tensorflow-cpu==2.5
 numpy
 matplotlib
 pathlib
 streamlit
-sys
 PIL
