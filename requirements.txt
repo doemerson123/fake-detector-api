@@ -3,5 +3,5 @@ tensorflow==2.5
 matplotlib==3.5.2
 pathlib==1.0.1
 Pillow==9.1.1
-tf_explain==0.3.1
+tf_explain==0.2.0
 opencv-python==3.4.17.61
