@@ -6,7 +6,7 @@ tf.config.run_functions_eagerly(True)
 import numpy as np     
 import matplotlib.pyplot as plt
 from pathlib import Path
-import cv2
+#import cv2
 import streamlit as st 
 src_path = Path(__file__).parent.parent.parent.resolve()
 #print(str(os.listdir())
