@@ -36,8 +36,8 @@ class StatefullMultiClassFBeta:
                 **kwargs):
 
         # initializing an object of the super class
-        #super(StatefullMultiClassFBeta, self).__init__(name=name, **kwargs)
-        super().__init__()
+        super(StatefullMultiClassFBeta, self).__init__(name=name, **kwargs)
+        
 
         # initializing state variables
         # initializing true positives
