@@ -3,4 +3,4 @@ numpy
 matplotlib
 pathlib
 streamlit
-PIL
+Pillow
