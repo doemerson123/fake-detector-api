@@ -4,4 +4,4 @@ matplotlib==3.5.2
 pathlib==1.0.1
 Pillow==9.1.1
 tf_explain==0.3.1
-opencv-python==3.4.5.20
+opencv-python==3.4.15.51
