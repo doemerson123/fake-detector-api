@@ -1,6 +1,6 @@
-streamlit
+streamlit==1.17.0
 tensorflow==2.5
-matplotlib
-pathlib
-Pillow
-tf_explain
+matplotlib==3.5.2
+pathlib==1.0.1
+Pillow==9.1.1
+tf_explain==0.3.1
