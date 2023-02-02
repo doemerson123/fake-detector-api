@@ -167,7 +167,6 @@ def explainable_layers(explainable_image):
 
     # list all convolution layers
     for layer in model.layers:
-        layer_counter += 1
         if 'conv2d' in str(layer.name): 
             conv_layer_list.append(layer.name)
          
