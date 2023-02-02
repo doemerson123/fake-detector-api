@@ -167,22 +167,23 @@ def explainable_layers(explainable_image):
 
     # list all convolution layers
     for layer in model.layers:
+        layer_counter += 1
         if 'conv2d' in str(layer.name): 
             conv_layer_list.append(layer.name)
-
+         
     explainer = GradCAM()
     
     
     layer_label_counter = len(conv_layer_list)-1
  
-    fig, axs = plt.subplots(len(conv_layer_list),1, figsize=(4, 4), dpi=600, facecolor='w', edgecolor='k')
+    fig, axs = plt.subplots(len(conv_layer_list),1, figsize=(3, 3), dpi=300, facecolor='w', edgecolor='k')
     axs = axs.ravel()
 
     for conv_layer, conv_layer_depth in zip(conv_layer_list, range(len(conv_layer_list))):
-        grid1 = explainer.explain(([explainable_image], None), model, class_index=1, layer_name =conv_layer, image_weight=.4 )
+        grid1 = explainer.explain(([explainable_image], None), model, class_index=1, layer_name =conv_layer_name_list, image_weight=.4 )
         axs[conv_layer_depth].imshow(explainable_image / 255.)
         axs[conv_layer_depth].imshow(grid1, alpha=0.9, cmap='bwr')
-        axs[conv_layer_depth].set_title(f'Convolution Layer: {conv_layer, conv_layer_depth}', size=9)
+        axs[conv_layer_depth].set_title(f'Convolution Layer {conv_layer_depth + 1}', size=9)
         axs[conv_layer_depth].set_xticks([])
         axs[conv_layer_depth].set_yticks([])
     plt.tight_layout(pad=0.3)
@@ -205,9 +206,9 @@ if uploaded_file:
     label = np.argmax(prediction)
     formatted_pct = round(float(prediction_pct[0][label]),3)
     if label == 0:
-        st.write(f"AI generated picture: model certainty of {formatted_pct}%")
+        st.write(f"Prediction: Deepfake with model certainty of {formatted_pct}%")
     elif label ==1:
-        st.write(f"Authentic picture: model certainty of {formatted_pct}%")
+        st.write(f"Prediction: Deepfake with model certainty of {formatted_pct}%")
 
     st.pyplot(explainable_layers(image))
 
