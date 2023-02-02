@@ -180,10 +180,11 @@ def explainable_layers(explainable_image):
     axs = axs.ravel()
 
     for conv_layer, conv_layer_depth in zip(conv_layer_list, range(len(conv_layer_list))):
+        unindexed_conv_layer_num = conv_layer_depth + 1
         grid1 = explainer.explain(([explainable_image], None), model, class_index=1, layer_name =conv_layer_name_list, image_weight=.4 )
         axs[conv_layer_depth].imshow(explainable_image / 255.)
         axs[conv_layer_depth].imshow(grid1, alpha=0.9, cmap='bwr')
-        axs[conv_layer_depth].set_title(f'Convolution Layer {conv_layer_depth + 1}', size=9)
+        axs[conv_layer_depth].set_title(f'Convolution Layer {unindexed_conv_layer_num}', size=9)
         axs[conv_layer_depth].set_xticks([])
         axs[conv_layer_depth].set_yticks([])
     plt.tight_layout(pad=0.3)
@@ -208,7 +209,7 @@ if uploaded_file:
     if label == 0:
         st.write(f"Prediction: Deepfake with model certainty of {formatted_pct}%")
     elif label ==1:
-        st.write(f"Prediction: Deepfake with model certainty of {formatted_pct}%")
+        st.write(f"Prediction: NOT a Deepfake with model certainty of {formatted_pct}%")
 
     st.pyplot(explainable_layers(image))
 
