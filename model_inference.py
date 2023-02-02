@@ -187,8 +187,8 @@ def explainable_layers(explainable_image):
         axs[conv_layer_depth].set_xticks([])
         axs[conv_layer_depth].set_yticks([])
     plt.tight_layout(pad=0.3)
-    fig.set_figheight(12)
-    fig.set_figwidth(12)
+    fig.set_figheight(9)
+    fig.set_figwidth(9)
     plt.subplots_adjust(wspace=0, hspace=.1)
     return(fig)
 
