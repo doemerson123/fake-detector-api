@@ -180,7 +180,7 @@ def explainable_layers(explainable_image):
 
     for conv_layer, conv_layer_depth in zip(conv_layer_list, range(len(conv_layer_list))):
         unindexed_conv_layer_num = conv_layer_depth + 1
-        grid1 = explainer.explain(([explainable_image], None), model, class_index=1, layer_name =conv_layer_list, image_weight=.4 )
+        grid1 = explainer.explain(([explainable_image], None), model, class_index=1, layer_name =conv_layer, image_weight=.4 )
         axs[conv_layer_depth].imshow(explainable_image / 255.)
         axs[conv_layer_depth].imshow(grid1, alpha=0.9, cmap='bwr')
         axs[conv_layer_depth].set_title(f'Convolution Layer {unindexed_conv_layer_num}', size=9)
